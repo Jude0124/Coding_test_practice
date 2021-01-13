@@ -1,5 +1,4 @@
 def solution(n, lost, reserve):
-    ans = set()
     res = set(reserve)-set(lost) 
     los = set(lost)-set(reserve) 
     cnt = 0
