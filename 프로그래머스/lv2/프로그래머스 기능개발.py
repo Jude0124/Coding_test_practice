@@ -1,6 +1,4 @@
-# 프로그래머스 기능개발
 
-``` python
 import math
 def solution(progresses, speeds):
   answer = []
@@ -17,7 +15,7 @@ def solution(progresses, speeds):
       pre = (math.ceil((100-progresses[i])/speeds[i]))
   answer.append(cnt)
   return answer
-```
+
 
 
 
