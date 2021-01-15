@@ -1,10 +1,8 @@
 def solution(prices):
-    answer = [0] * len(prices)
-    for i in range(len(prices)):
-        for j in range(i+1, len(prices)):
-            if prices[i] <= prices[j]:
-                answer[i] += 1
-            else :
-                answer[i] += 1
+    answer = len(prices)*[0]
+    for k in range(len(prices)):
+        for v in range(k+1,len(prices)):
+            answer[k] +=1
+            if prices[k]>prices[v]:
                 break
     return answer
