@@ -38,7 +38,7 @@ def solution(arr):
 
 import numpy as np
 
-def solution(arr):
+def solution2(arr):
     # 재귀함수 구현
     def fn(a):
         if np.all(a == 0): return np.array([1, 0])
