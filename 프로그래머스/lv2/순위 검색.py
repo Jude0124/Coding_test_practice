@@ -7,7 +7,6 @@ def solution(inf,que):
     
     for i in inf:      # 사전 생성 단계에서 모두("-")인 경우를 하나의 case로 판단 4*3*3*3(108) 개의 dic 생성해주기
         i_raw = i[:-1] # 사전보다 query가 길 수 있기 때문에 좀 복잡하더라도 모든 사전을 구축하는 것이 효율적!
-        i_raw = i[:-1]
         s = int(i[-1])    
         
         for j in range(5):           
@@ -26,7 +25,7 @@ def solution(inf,que):
     for i in dic.values():
         i = i.sort()
 
-    for q in que:
+    for q in que:       # binary search 
         if q[0] in dic:  
             low = 0
             high = len(dic[q[0]])-1
