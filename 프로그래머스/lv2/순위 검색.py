@@ -25,7 +25,7 @@ def solution(inf,que):
     for i in dic.values():
         i = i.sort()
 
-    for q in que:       # binary search 
+    for q in que:       # binary search , 추후 공부해야할 모듈(bisect,collections)
         if q[0] in dic:  
             low = 0
             high = len(dic[q[0]])-1
