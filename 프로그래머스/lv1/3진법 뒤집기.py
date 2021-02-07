@@ -10,5 +10,5 @@ def solution(n):
         n -= (n//J)*J # 나눈 값만 큼 n 값 초기화
         J /= 3        # J 값 초기화
     for j in range(len(n3)):
-        answer+=(3**j)*n3[j]    # 리스트를 건드리지 않고 range를 이용하여 앞에서부터 차례로 10진화 후 합연산
+        answer+=(3**j)*n3[j]    # 리스트를 건드리지 않고 range를 이용하여 앞에서부터 차례로 10진화 후 합연산 
     return answer
