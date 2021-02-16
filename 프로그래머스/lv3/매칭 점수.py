@@ -1,26 +1,19 @@
 import re
 def solution(w,p):
     w = w.lower()
-    base_score,exlink,exurl, url = [],[],[],[]
-
+    base_score,exurl, url = [],[],[]
     for i in range(len(p)):
-        p[i] = p[i].lower()
-    
+        p[i] = p[i].lower()    
         url.append(re.search(r'<meta property=\"og:url\" content=\"https://([\S]*)\"/>',p[i]).group(1))
-        cnt = 0
-        for j in re.findall(r'[a-z]+',p[i]):
-            if w == j:
-                cnt += 1
-        base_score.append(cnt)    
-        exlink.append(len(set(re.findall(r'<a href="https://([\S]+)">',p[i]))))
+        base_score.append(re.findall(r'[a-z]+',p[i]).count(w))    
         exurl.append(list(set(re.findall(r'<a href="https://([\S]+)">',p[i]))))
+        
     match_score = base_score[:]
     
     for  i in range(len(p)):
         for j in range(len(p)):
                 if (i != j) and (url[i] in exurl[j]):
-                    if exlink[j] != 0:
-                        match_score[i] += base_score[j]/exlink[j]
+                        match_score[i] += base_score[j]/len(exurl[j])
                         
     return match_score.index(max(match_score))
 
@@ -28,8 +21,7 @@ def solution(w,p):
 #  search findall match group 
 
 # 리스트 보다는 딕셔너리 형식으로 깔끔하게 정리하는 습관들이기 
-# base_score == 기본점수 ,  exlink == 외부링크 수 , exurl == 외부 링크 목록, url == 해당 사이트 주소(index역할)
-# 4개다 리스트로 사용하였지만 url을 key로 exurl을 value로 해주고 exlink의 경우 length 연산을 통해 처리 가능
+# base_score == 기본점수 ,exurl == 외부 링크 목록, url == 해당 사이트 주소(index역할)
 
 # 시간 잡아먹었던 구간 
 # 따로 외부링크 목록을 list로 빼는게 귀찮아서 안잡아주고 raw_file에서 외부링크 수를 탐색해서 자꾸 틀렸다.
