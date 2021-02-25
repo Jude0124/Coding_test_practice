@@ -20,6 +20,7 @@ def solution(n,w,d):
         p += 1
     return -1
 
+# 0. 수리 지점을 선형으로 변환해준다. ex) (10 -> 1) => (10 -> 13) N == 12
 # permutations 을 이용한 완전 탐색
 # p = 최소 탐색인원,default = 1
 
