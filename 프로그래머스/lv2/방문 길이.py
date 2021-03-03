@@ -1,3 +1,4 @@
+# pylint: disable=unused-variable
 def solution(dirs):
     U,D,L,R = (1,0),(-1,0),(0,-1),(0,1)
     x,y,deck,cnt = 0,0,{()},0
@@ -9,4 +10,4 @@ def solution(dirs):
                 deck.add(((x+a,y+b),(x,y)))
                 cnt += 1
             x,y = x+a,y+b
-    return cnt
+    return cnt      
