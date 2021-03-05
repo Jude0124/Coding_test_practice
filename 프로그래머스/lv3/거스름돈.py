@@ -1,10 +1,11 @@
 def solution(n,m):
     d = [1] + [0]*n
+
     for j in m:
         for i in range(n+1):
             if i - j >= 0:
                 d[i] += d[i-j]
-    return d[-1]%(1e9+7)
+    return d[-1]
 
 
 # dp 문제 
