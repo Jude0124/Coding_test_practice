@@ -11,7 +11,6 @@ def solution(b, t, w):
                             cnt += 1
                     if cnt == 1:
                         tmp.append(m+[i])
-                        if i == t:
-                            return len(m)
+                        if i == t: return len(m)
         b = tmp[:]
     return 0
