@@ -1,5 +1,6 @@
 import heapq
 from collections import defaultdict
+
 def solution(n,r,k):
     dic = defaultdict(dict)
     s = [0,[1]]
