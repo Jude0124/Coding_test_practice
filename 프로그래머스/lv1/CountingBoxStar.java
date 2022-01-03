@@ -13,5 +13,6 @@ class CountingBoxStar {
         for(int j = 0 ; j < b ; j++){
             System.out.println(star);
         }
+        sc.close();
     }
 }
