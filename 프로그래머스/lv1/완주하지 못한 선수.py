@@ -1,6 +1,3 @@
-
-
-```python
 def solution(par,com):
     par.sort()
     com.sort()
@@ -10,4 +7,4 @@ def solution(par,com):
             return p  
 
     return par[-1] 
-```
+
