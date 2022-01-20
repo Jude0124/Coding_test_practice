@@ -1,5 +1,5 @@
 class GetLCMWithGCD {
-    public int[] GetLCMWithGCD(int n, int m) {
+    public int[] getLCMWithGCD(int n, int m) {
         
         int[] answer = {getGCD(n,m),n*m/getGCD(n,m)};
         return answer;
