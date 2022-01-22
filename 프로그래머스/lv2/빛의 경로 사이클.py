@@ -11,7 +11,7 @@ def solution(grid):     # 굳이 알고리즘 분류를 해본다면 다익스�
             road.add((i,j,i,(j+1)%maxY,"R"))
 
     
-    while road != set():        #  각각의 격자에 대하여 cycle 함수를 호출하여 벡터의 도착점에서 다음 벡터를 받고 해당 모든 경로들에 대하여 지나갈 set에서 pop 수행
+    while road != set():        #  각각의 격자에 대하여 cycle 함수를 호출하여 벡터의 도착점에서 다음 벡터를 받고 해당 모든 경로들에 대하여 지나간 set에서 remove 수행
         now = road.pop()
         cnt += 1
 
@@ -34,8 +34,8 @@ def cycle(grid,pos,maxx,maxy):
         W = dicL[pos[4]]
         
     if W == "U":                            # 각각의 좌표에 대하여 초기화된 방향값을 기준으로 다음 좌표를 들어온 매개변수의 도착점을 출발점으로 계산하여 다음 벡터 산출
-        return (pos[2],pos[3],(pos[2]-1)%maxx,pos[3],W)
-    elif W == "D":
+        return (pos[2],pos[3],(pos[2]-1)%maxx,pos[3],W)   # %maxx 나머지 정리를 통해 외벽처리
+    elif W == "D":                                                  
         return (pos[2],pos[3],(pos[2]+1)%maxx,pos[3],W)
     elif W == "L":
         return (pos[2],pos[3],pos[2],(pos[3]-1)%maxy,W)
