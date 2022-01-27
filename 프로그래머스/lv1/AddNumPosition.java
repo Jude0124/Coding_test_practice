@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class AddNumPosition {
     public int addNumPosition(int n) {
         int answer = 0;
