@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 
-public class Main_BOJ_3190_뱀 {
+public class Snake {
 
     static class pair{
         int x;
