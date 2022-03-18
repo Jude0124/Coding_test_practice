@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
         "프로그래머스/lv2",
-        "백준"
+        "백준",
+        "snippet_code/itertools"
     ]
 }
