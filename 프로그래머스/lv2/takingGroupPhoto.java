@@ -1,20 +1,18 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-//  우선 받은 배열에 대해서 모든 경우의 수를 조합(o)
-
 public class takingGroupPhoto {
     static int answer = 0;
     static String[] arr = { "A", "C", "F", "J", "M", "N", "R", "T" };
 
     public static void main(String[] args) { // 테케
         solution(2, new String[] { "N~F=0", "R~T>2" });
-        // solution(2,new String [] {"M~C<2", "C~M>1"});
+        solution(2,new String [] {"M~C<2", "C~M>1"});
 
     }
 
     public static int solution(int n, String[] data) {
+        // isValid(new String[] { "A", "C", "F", "J", "M", "N", "R", "T" }, new String[] { "N~F=0", "R~T>2" });
         String[] output = new String[8];
         boolean[] visited = new boolean[8]; // 해당 node의 방문여부 체크를 위한 배열 (기본 false)
+        answer = 0;
         permutate(output, visited, 0, data);
         System.out.println(answer);
         return answer;
@@ -24,6 +22,7 @@ public class takingGroupPhoto {
     static void permutate(String[] output, boolean[] visited, int depth, String[] data) {
         if (depth == 8) { // 40320
             isValid(output, data);
+
         } else {
 
             for (int i = 0; i < 8; i++) {
@@ -42,24 +41,27 @@ public class takingGroupPhoto {
         int pos1 = 0;
         int pos2 = 0;
         for (String option : data) {
-            for (int i = 0; i < 8; i++) {
+
+            for (int i = 0; i < 8; i++) { 
                 if (output[i].equals(option.substring(0, 1))) {
                     pos1 = i;
                 } else if (output[i].equals(option.substring(2, 3))) {
                     pos2 = i;
-                }
-                if (option.substring(3, 4).equals("=") && pos1 - pos2 != 1) {
-                    return;
-                } else if (option.substring(3, 4).equals(">")
-                        && Math.abs(pos1 - pos2) < Integer.parseInt(option.substring(4) + 2)) {
-                    return;
-                } else if (option.substring(3, 4).equals("<")
-                        && Math.abs(pos1 - pos2) > Integer.parseInt((option.substring(4)))) {
-                    return;
+                    
                 }
             }
+            int con = Integer.parseInt(option.substring(4));
+            if (option.substring(3, 4).equals("=") && Math.abs(pos1 - pos2) !=con+1) {
+                return;
+            } else if (option.substring(3, 4).equals(">")
+                    && Math.abs(pos1 - pos2) < con + 2) {
+                return;
+            } else if (option.substring(3, 4).equals("<")
+                    && Math.abs(pos1 - pos2) > con) {
+                return;
+            }
+        
         }
-        System.out.println(output);
         answer++;
     }
 
