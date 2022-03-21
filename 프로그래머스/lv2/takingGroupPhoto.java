@@ -1,4 +1,4 @@
-public class takingGroupPhoto {                                         // 이번 문제는 하나의 테스트 안에 여러 개의 테케가 존재하므로 메서드 호출이전에 statci 초기화가 필요하다.
+public class takingGroupPhoto {                                         // 이번 문제는 하나의 테스트 안에 여러 개의 테케가 존재하므로 메서드 호출이전에 static 초기화가 필요하다.
     static int answer = 0;
     static String[] arr = { "A", "C", "F", "J", "M", "N", "R", "T" };
     static String[] newData;
