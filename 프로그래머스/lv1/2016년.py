@@ -1,4 +1,4 @@
-def solution(a, b):
+def solution(a,b):
     whatday = ["FRI","SAT","SUN","MON","TUE","WED","THU"]
     month = [31,29,31,30,31,30,31,31,30,31,30]
     if a==1:
