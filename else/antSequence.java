@@ -9,7 +9,8 @@ public class antSequence {
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
         sc.close();
-        int now = 1;
+        int now = 1; //포인터 현재 내가 서있는 위치
+
         String ant = "1";        
         while(num != now){
             ant = calc(ant);
@@ -38,3 +39,4 @@ public class antSequence {
         return next;
     }
 }
+
