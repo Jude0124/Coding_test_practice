@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Tresure_BOJ_1026{
+public class BOJ_1026{
     public static void main(String[] args) {
         int answer = 0;
         Scanner sc = new Scanner(System.in);
@@ -12,7 +12,7 @@ public class Tresure_BOJ_1026{
         Collections.sort(people);
 
         for (int i = 0; i < len; i++) {
-            answer += people.get(i)*(len-i)
+            answer += people.get(i)*(len-i);
         }
 
         System.out.println(answer);
