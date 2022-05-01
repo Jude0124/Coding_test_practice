@@ -23,9 +23,11 @@ public class BOJ_1213 {
 
     static void makeIt(char arr[]) {
         boolean odd = false;
+        
         String center = "";
         String answer1 = "";
         String answer2 = answer1;
+
         int cnt = 0;
         char before = arr[0];
         char now;
@@ -34,7 +36,7 @@ public class BOJ_1213 {
             if (now == before) {
                 cnt++;
                 if (cnt % 2 == 1) {
-                    answer1 += before;
+                    answer1 = answer1 +  before;
                     answer2 = before + answer2;
                 }
             } else {
