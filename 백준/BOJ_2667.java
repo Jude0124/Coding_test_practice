@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -8,13 +9,13 @@ public class BOJ_2667 {
     static int size;
     static Queue<int []> queue = new LinkedList<>();
     static int area;
-    
+    static int cnt;
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
         
-        String cnt = sc.next();
-        size = Integer.valueOf(cnt);
+        String num = sc.next();
+        size = Integer.valueOf(num);
         table = new int [size+2][size+2];
         for(int garo = 1 ; garo < size+1; garo++){
             String temp = sc.next();
@@ -24,6 +25,8 @@ public class BOJ_2667 {
         }
         sc.close();
         ArrayList <Integer> answer = getAnswer();
+        System.out.println(cnt);
+        Collections.sort(answer);
         for(int ans : answer){
             System.out.println(ans);
         }
@@ -31,8 +34,7 @@ public class BOJ_2667 {
 
     static ArrayList<Integer> getAnswer(){
         ArrayList<Integer> answer = new ArrayList<>();
-        int cnt = 0;
-        answer.add(cnt,0);
+        cnt = 0;
 
         for(int i = 1 ; i<size+1; i++){
             for(int j = 1 ; j<size+1; j++){
@@ -40,7 +42,8 @@ public class BOJ_2667 {
                     area=0;
                     cnt++;
                     queue.add(new int [] {i,j});
-                    answer.add(cnt,getArea());
+                    table[i][j] = 0;
+                    answer.add(cnt-1,getArea());
                 }
             }
         }
@@ -53,15 +56,19 @@ public class BOJ_2667 {
             table[t[0]][t[1]] = 0;
             if(table[t[0]][t[1]-1] == 1){
                 queue.add(new int [] {t[0],t[1]-1});
+                table[t[0]][t[1]-1] = 0;
             };
             if(table[t[0]][t[1]+1] == 1){
                 queue.add(new int [] {t[0],t[1]+1});
+                table[t[0]][t[1]+1] = 0;
             };
             if(table[t[0]-1][t[1]] == 1){
                 queue.add(new int [] {t[0]-1,t[1]});
+                table[t[0]-1][t[1]] = 0;
             };
             if(table[t[0]+1][t[1]] == 1){
                 queue.add(new int [] {t[0]+1,t[1]});
+                table[t[0]+1][t[1]] = 0;
             };
             
 
