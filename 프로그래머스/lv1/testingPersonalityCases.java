@@ -10,29 +10,26 @@ class testingPersonalityCases {
         for ( int i = 0; i < survey.length; i++){
                 checkIndex(survey[i],4-choices[i]);
         }
-        
-        
-
+    
+    
         return getAnswer();
 
         }
     
     void checkIndex(String eliment , int score){
-     
+        char abc;
         if (score == 0){
             return; 
         }else if (score < 0 ){
-            for (int i = 0 ; i < chars.length ; i++){
-                if (chars[i] == eliment.charAt(0)){
-                    sheet[i] += Math.abs(score); 
-                }
-            }    
+            abc = eliment.charAt(0);   
         }else {
-            for (int i = 0 ; i < chars.length ; i++){
-                if (chars[i] == eliment.charAt(1)){
+            abc =  eliment.charAt(1);
+        }
+
+        for (int i = 0 ; i < chars.length ; i++){
+            if (chars[i] == abc){
                 sheet[i] += Math.abs(score); 
                 }
-            }
         }
        
         return;

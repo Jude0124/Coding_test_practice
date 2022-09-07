@@ -1,0 +1,51 @@
+class PressKeypad {
+    public String pressKeypad(int[] numbers, String hand) {
+        String answer = "";
+        int tempL = 10;
+        int tempR = 12;
+        for(int i=0; i<numbers.length; i++){
+            if(numbers[i]==0)
+                numbers[i]=11;
+            switch (numbers[i]){
+                case 1:
+                case 4:
+                case 7:
+                    answer+="L";
+                    tempL = numbers[i];
+                    break;
+                case 3:
+                case 6:
+                case 9:
+                    answer+="R";
+                    tempR = numbers[i];
+                    break;
+                case 2:
+                case 5:
+                case 8:
+                case 11:
+                    int absL = Math.abs(numbers[i]-tempL);
+                    int absR = Math.abs(numbers[i]-tempR);
+                    if((absL/3+absL%3)>(absR/3+absR%3)){
+                        answer+="R";
+                        tempR = numbers[i];
+                    }
+                    else if((absL/3+absL%3)==(absR/3+absR%3)){
+                        if(hand.equals("left")){
+                            tempL = numbers[i];
+                            answer+="L";
+                        }
+                        else{
+                            tempR = numbers[i];
+                            answer+="R";
+                        }
+                    }
+                    else{
+                        answer+= "L";
+                        tempL = numbers[i];
+                    }
+                    break;
+            }
+        }
+        return answer;
+    }
+}
